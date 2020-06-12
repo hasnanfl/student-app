@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "617522810177",
+    "firebase_url": "https://hasnanfl.firebaseio.com",
+    "project_id": "hasnanfl",
+    "storage_bucket": "hasnanfl.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617522810177:android:f3d8465c4e36eef78ae5c0",
+        "android_client_info": {
+          "package_name": "com.example.coba"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617522810177-iqfac8420s878hng3mnbk462tlkiff49.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCs4tkT2YFJ33BTAV5CWkxNlurZWW8GOHY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617522810177-iqfac8420s878hng3mnbk462tlkiff49.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
