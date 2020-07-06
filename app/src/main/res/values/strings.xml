@@ -1,4 +1,34 @@
 <resources>
+    <string name="struktur"><ul>Struktur Kepengurusan</ul></string>
     <string name="app_name">coba</string>
     <string name="Student_App" />
+    <string name="kunik">Kunik Misbah K., S.Pd.I</string>
+    <string name="ulfah">Ulfah Dahlia P.</string>
+    <string name="ali">Ali Musyafa, S.E</string>
+    <string name="ketua">Ketua Yayasan</string>
+    <string name="kepala">Kepala Sekolah</string>
+    <string name="etty">Sri Ettyningsih, S.P</string>
+    <string name="guru">Guru</string>
+    <string name="tenaga">Tenaga Kependidikan</string>
+    <string name="admin">Administrasi</string>
+    <string name="ratna">Ratna Jamilah S.</string>
+    <string name="yani">Yani Widaningsih</string>
+    <string name="nisa">Khiyarotun Nisa</string>
+    <string name="venny">Venny S., S.Pd</string>
+
+    <string name="visi">Menjadikan Generasi Islam yang Madani.</string>
+    <string name="misi">Menyelenggarakan pendidikan berorientasi ke Islaman dan keilmuan serta mempersiapkan siswa untuk siap mengikuti jenjang sekolah dasar.</string>
+    <string name="alamat">
+        <Alamat>
+            Bumi Puspiptek Asri blok 3N no. 5, Rt/Rw 10/04, Pagedangan, Tangerang
+            (15339)
+        </Alamat>
+    </string>
+    <string name="kontak">
+        <telp>No. Telp : 081283417529</telp> <br></br>
+    </string>
+    <string name="email">
+        <email>Email : ypaialmisbah97@gmail.com</email>
+    </string>
+
 </resources>

@@ -6,14 +6,20 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:hardwareAccelerated="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/Student_App"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".editprof"/>
-        <activity android:name=".profil"/>
-        <activity android:name=".signup"/>
+        <activity android:name=".prestasi"></activity>
+        <activity android:name=".kontakk" />
+        <activity android:name=".fullscr" />
+        <activity android:name=".profile" />
+        <activity android:name=".galeri" />
+        <activity android:name=".uta" />
+        <activity android:name=".signup" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +27,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
             android:excludeFromRecents="true"
@@ -32,6 +37,7 @@
             tools:replace="android:launchMode" />
 
         <service android:name="com.google.firebase.components.ComponentDiscoveryService" />
+
         <meta-data
             android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
             android:value="com.google.firebase.components.ComponentRegistrar" />

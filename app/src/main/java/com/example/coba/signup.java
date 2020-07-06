@@ -3,7 +3,6 @@ package com.example.coba;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,140 +13,134 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.HashMap;
-import java.util.Map;
 
 public class signup extends AppCompatActivity {
-    public static final String TAG = "TAG";
-    EditText mFullName, mEmail, mPassword, mPhone, mTmpt_L, mTgl_L, mNPM, mUname;
+    EditText mFullName, mEmail, mPassword, mPhone, mTmpt_L, mTgl_L, mNPM, mPassC;
     Button mRegisterBtn;
     TextView mLoginBtn;
-    FirebaseAuth fAuth;
-    FirebaseFirestore fStore;
-    String userID;
+    FirebaseDatabase rootNode;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        mNPM = findViewById(R.id.npm_edt);
+        mTmpt_L = findViewById(R.id.tmpt_lhr_edt);
+        mTgl_L = findViewById(R.id.tgl_lhr_edt);
         mFullName = findViewById(R.id.fullname);
         mEmail = findViewById(R.id.email_edt);
         mPassword = findViewById(R.id.pass_edt);
+        mPassC = findViewById(R.id.passc_edt);
         mPhone = findViewById(R.id.no_hp_edt);
         mRegisterBtn = findViewById(R.id.btn_daftar);
         mLoginBtn = findViewById(R.id.txtlogin);
 
-        fAuth = FirebaseAuth.getInstance();
-        fStore = FirebaseFirestore.getInstance();
-
-        if (fAuth.getCurrentUser() != null) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
-        }
-
+        //login
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
             }
-        });
+            });
 
+        //save data in firebase button click
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String email = mEmail.getText().toString().trim();
-                final String password = mPassword.getText().toString().trim();
-                final String npm = mNPM.getText().toString();
-                final String fullName = mFullName.getText().toString();
-                final String phone = mPhone.getText().toString();
-                final String username = mUname.getText().toString();
-                final String tmpt_lahir = mTmpt_L.getText().toString();
-                final String tgl_lahir = mTgl_L.getText().toString();
+                reference = FirebaseDatabase.getInstance().getReference("Signup");
+
+                //get all the values
+
+                String npm = mNPM.getText().toString();
+                String tpmt_lhr = mTmpt_L.getText().toString();
+                String tgl_lhr = mTgl_L.getText().toString();
+                String f_nm = mFullName.getText().toString();
+                String email = mEmail.getText().toString();
+                String pass = mPassword.getText().toString();
+                String passC = mPassC.getText().toString();
+                String no_hp = mPhone.getText().toString();
+
+                UserHelper helperClass = new UserHelper(npm, tpmt_lhr, tgl_lhr, f_nm, pass, passC, email, no_hp);
+                reference.child(no_hp).setValue(helperClass);
 
                 if (TextUtils.isEmpty(email)) {
                     mEmail.setError("Email is Required");
                     return;
                 }
 
-                if (TextUtils.isEmpty(password)) {
+                else if (TextUtils.isEmpty(pass)) {
                     mPassword.setError("Password is Required");
                     return;
                 }
 
-                if (TextUtils.isEmpty(npm)) {
+                else if(!pass.equals(passC)){
+                    mPassC.setError("Password doesn't match!");
+                    return;
+                }
+                else if (TextUtils.isEmpty(npm)) {
                     mNPM.setError("Must be filled");
                     return;
                 }
 
-                if (password.length() < 6) {
+                else if (pass.length() < 6) {
                     mPassword.setError("Password Must be >= 6 Characters");
                     return;
                 }
 
-                if (TextUtils.isEmpty(username)) {
-                    mUname.setError("Must be filled");
-                    return;
+                else{
+                    validdateDetails(npm, tpmt_lhr, tgl_lhr, f_nm, email, pass, passC, no_hp);
                 }
-                // register the user in firebase
 
-                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
+                startActivity(new Intent(getApplicationContext(), MainActivity.class));
 
-                            // send verification link
+            }
+        });
+    }
 
-                            FirebaseUser fuser = fAuth.getCurrentUser();
-                            fuser.sendEmailVerification().addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Toast.makeText(signup.this, "Verification Email Has been Sent.", Toast.LENGTH_SHORT).show();
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "onFailure: Email not sent " + e.getMessage());
-                                }
-                            });
+    private void validdateDetails(final String npm, final String tpmt_lhr, final String tgl_lhr,  final String f_nm, final String email, final String pass, final String passC, final String no_hp) {
 
-                            Toast.makeText(signup.this, "User Created.", Toast.LENGTH_SHORT).show();
-                            userID = fAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fStore.collection("users").document(userID);
-                            Map<String, Object> user = new HashMap<>();
-                            user.put("fName", fullName);
-                            user.put("email", email);
-                            user.put("phone", phone);
-                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
+        final DatabaseReference rootref;
+        rootref = FirebaseDatabase.getInstance().getReference();
+        rootref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(!(dataSnapshot.child("Signup").child(npm).exists())){
+                    HashMap <String,Object> userdatamap = new HashMap<>();
+                    userdatamap.put("NPM", npm);
+                    userdatamap.put("Tempat Lahir", tpmt_lhr);
+                    userdatamap.put("Tangal Lahir", tgl_lhr);
+                    userdatamap.put("Nama Lengkap", f_nm);
+                    userdatamap.put("Email", email);
+                    userdatamap.put("No. Hp", no_hp);
+                    userdatamap.put("Password", pass);
+                    userdatamap.put("Konfirmasi Password", passC);
+
+                    rootref.child("Signup").child(npm).updateChildren(userdatamap)
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d(TAG, "onSuccess: user Profile is created for " + userID);
-                                }
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Log.d(TAG, "onFailure: " + e.toString());
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Toast.makeText(signup.this, "Sign Up has been successfull", Toast.LENGTH_SHORT).show();
+                                    }
                                 }
                             });
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-
-                        } else {
-                            Toast.makeText(signup.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                }
             }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
         });
     }
 }

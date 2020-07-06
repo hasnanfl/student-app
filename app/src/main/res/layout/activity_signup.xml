@@ -7,7 +7,7 @@
     tools:context="com.example.coba.signup">
 
     <LinearLayout
-        android:background="#fece2f"
+        android:background="#FFFFFF"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
@@ -15,10 +15,11 @@
         android:orientation="vertical">
 
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width ="match_parent"
             android:layout_height="wrap_content"
             android:text="AKTIVASI"
             android:textSize="20dp"
+            android:textColor="@color/hijau"
             android:layout_marginBottom="10dp"
 
             />
@@ -57,13 +58,12 @@
             android:hint="Full Name"
             android:layout_marginBottom="5dp"/>
         <EditText
-            android:id="@+id/pass_edt"
+            android:id="@+id/no_hp_edt"
             android:paddingLeft="10dp"
             android:background="@drawable/bg_form"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="Password"
-            android:inputType="textPassword"
+            android:hint="No. Hp"
             android:layout_marginBottom="5dp"/>
         <EditText
             android:id="@+id/email_edt"
@@ -74,12 +74,22 @@
             android:hint="Email"
             android:layout_marginBottom="5dp"/>
         <EditText
-            android:id="@+id/no_hp_edt"
+            android:id="@+id/pass_edt"
             android:paddingLeft="10dp"
             android:background="@drawable/bg_form"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="No. Hp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:layout_marginBottom="5dp"/>
+        <EditText
+            android:id="@+id/passc_edt"
+            android:paddingLeft="10dp"
+            android:background="@drawable/bg_form"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="Password Confirmation"
+            android:inputType="textPassword"
             android:layout_marginBottom="5dp"/>
 
         <Button
@@ -98,6 +108,7 @@
             android:textStyle="bold"
             android:textSize="18sp"
             android:text="LOGIN"
+            android:textColor="@color/hijau"
             android:gravity="center_horizontal" />
 
 

@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    tools:context=".profile">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:scrollbars="none"
+        android:clipToPadding="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="450dp"
+                    android:layout_centerHorizontal="true"
+                    android:orientation="vertical"
+                    android:background="@color/hijau"
+                    android:padding="20dp"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/foto_profil"
+                        android:layout_width="70dp"
+                        android:layout_height="70dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/logo1"/>
+
+                    <TextView
+                        android:id="@+id/fullname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:paddingTop="10dp"
+                        android:text="YPAI AL-MISBAH"
+                        android:fontFamily="sans-serif-light"
+                        android:textColor="@color/putih"
+                        android:textSize="25sp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:text="@string/struktur"
+                android:textStyle=""
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="@color/hijau"
+                android:fontFamily="sans-serif-medium"
+                android:textSize="20sp"/>
+
+            <LinearLayout
+                android:background="@drawable/bg_form"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                <com.mikhaellopez.circularimageview.CircularImageView
+                    android:id="@+id/profpic1"
+                    android:src="@drawable/ali1"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    app:civ_border="true"
+                    app:civ_border_width="2dp"
+                    app:civ_shadow="true"
+                    app:civ_shadow_radius="0"/>
+                
+                <TextView
+                    android:id="@+id/namtag1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/ali"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/grey1"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="13sp"/>
+
+                    <TextView
+                        android:id="@+id/job1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/ketua"
+                        android:textAlignment="center"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="sans-serif-light"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="13sp"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/profpic2"
+                        android:src="@drawable/kunik"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:civ_border="true"
+                        app:civ_border_width="2dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_radius="0"/>
+
+                    <TextView
+                        android:id="@+id/namtag2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/kunik"
+                        android:textSize="13sp"
+                        android:layout_gravity="center_horizontal"
+                        android:textAlignment="center"
+                        android:textColor="@color/grey1"
+                        android:fontFamily="sans-serif-medium"/>
+
+                    <TextView
+                        android:id="@+id/job2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/kepala"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="sans-serif-light"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/bg_form"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/profpic3"
+                        android:src="@drawable/ratna"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:civ_border="true"
+                        app:civ_border_width="2dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_radius="0"/>
+
+                    <TextView
+                        android:id="@+id/namtag3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/ratna"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/grey1"
+                        android:fontFamily="sans-serif-medium"/>
+
+                    <TextView
+                        android:id="@+id/job3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/guru"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="sans-serif-light"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/profpic4"
+                        android:src="@drawable/ulfah1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:civ_border="true"
+                        app:civ_border_width="2dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_radius="0"/>
+
+                    <TextView
+                        android:id="@+id/namtag4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/ulfah"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:textColor="@color/grey1" />
+
+                    <TextView
+                        android:id="@+id/job4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/guru"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="sans-serif-light"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/profpic5"
+                        android:src="@drawable/etty1"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:civ_border="true"
+                        app:civ_border_width="2dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_radius="0"/>
+
+                    <TextView
+                        android:id="@+id/namtag5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/etty"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/grey1"
+                        android:fontFamily="sans-serif-medium"/>
+
+                    <TextView
+                        android:id="@+id/job5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/guru"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="sans-serif-light"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:background="@drawable/bg_form"
+                android:layout_width="match_parent"
+                android:layout_height="110dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/profpic6"
+                        android:src="@drawable/yani"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:civ_border="true"
+                        app:civ_border_width="2dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_radius="0"/>
+
+                    <TextView
+                        android:id="@+id/namtag6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/yani"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:textColor="@color/grey1" />
+
+                    <TextView
+                        android:id="@+id/job6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tenaga"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="sans-serif-light"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/profpic7"
+                        android:src="@drawable/nisa"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:civ_border="true"
+                        app:civ_border_width="2dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_radius="0"/>
+
+                    <TextView
+                        android:id="@+id/namtag7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="5dp"
+                        android:fontFamily="sans-serif-medium"
+                        android:text="@string/nisa"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:textColor="@color/grey1" />
+
+                    <TextView
+                        android:id="@+id/job7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/guru"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="sans-serif-light"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:id="@+id/profpic8"
+                        android:src="@drawable/venny"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:civ_border="true"
+                        app:civ_border_width="2dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_radius="0"/>
+
+                    <TextView
+                        android:id="@+id/namtag8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="@string/venny"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/grey1"
+                        android:fontFamily="sans-serif-medium"/>
+
+                    <TextView
+                        android:id="@+id/job8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/admin"
+                        android:textSize="13sp"
+                        android:textAlignment="center"
+                        android:layout_gravity="center_horizontal"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:fontFamily="sans-serif-light"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:paddingBottom="15dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Visi"
+                    android:textColor="@color/hijau"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:background="@drawable/bg_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/visi"
+                    android:textSize="17sp"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal"
+                    android:textColor="@color/grey1"
+                    android:fontFamily="sans-serif-light"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:paddingBottom="15dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:paddingTop="15dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Misi"
+                    android:textColor="@color/hijau"
+                    android:fontFamily="sans-serif-medium"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:background="@drawable/bg_form"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/misi"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="17sp"
+                    android:textColor="@color/grey1"
+                    android:fontFamily="sans-serif-light"/>
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</LinearLayout>
